@@ -1,5 +1,6 @@
 import { assetsMap } from "./assetsMap.js";
 import * as PIXI from "./pixi.mjs";
+import { Tank } from "./Tank.js";
 
 const app = new PIXI.Application({
     width: 1280,
@@ -22,6 +23,9 @@ const runGame = () => {
     .drawCircle(0, 0, 25)
     .endFill();
 
+    const tank = new Tank();
+    
+    app.stage.addChild(tank.view);
     app.stage.addChild(marker);
 
     app.stage.position.set(1280/2, 720/2);
