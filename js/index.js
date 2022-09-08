@@ -1,6 +1,7 @@
-import { assetsMap } from "./assetsMap.js";
 import * as PIXI from "./pixi.mjs";
+import { assetsMap } from "./assetsMap.js";
 import { Tank } from "./Tank.js";
+import { TweenManager, Tween } from "./Tween.js";
 
 const app = new PIXI.Application({
     width: 1280,
@@ -29,6 +30,8 @@ const runGame = () => {
     app.stage.addChild(marker);
 
     app.stage.position.set(1280/2, 720/2);
+
+    const tweenManager = new TweenManager(app.ticker);
 }
 
 assetsMap.sprites.forEach((value) => app.loader.add(value.name, value.url));
